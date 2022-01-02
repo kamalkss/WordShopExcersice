@@ -79,7 +79,7 @@ public class PostCodeController : Controller
         }
     }
     [HttpGet("coordinate")]
-    public async Task<ActionResult<ReadPostCodeDTO>> GetPostcodeWithCoordinate(int lat,int lng)
+    public async Task<ActionResult<ReadPostCodeDTO>> GetPostcodeWithCoordinate(double lat,double lng)
     {
         try
         {
@@ -98,7 +98,7 @@ public class PostCodeController : Controller
         }
     }
     [HttpGet("coordinaterange")]
-    public async Task<ActionResult<ReadPostCodeDTO>> GetPostcodeWithCoordinateRange(int lat, int lng, int range)
+    public async Task<ActionResult<ReadPostCodeDTO>> GetPostcodeWithCoordinateRange(double lat, double lng, int range)
     {
         try
         {

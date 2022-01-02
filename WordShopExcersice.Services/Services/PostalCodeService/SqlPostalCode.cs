@@ -48,20 +48,6 @@ public class SqlPostalCode : IPostalCode
 
         var nearby = _context.PostCode.Select(x => new GeoCoordinate(x.latitude, x.longitude))
             .AsEnumerable().Where(x => x.GetDistanceTo(Center) <= (range * 1609.344)).ToList();
-        var nearbyOrganizations = _context.PostCode.AsEnumerable()
-            .Select(x => new
-            { //use an anonymous type or any type you want
-                Distance = new GeoCoordinate(x.latitude, x.longitude).GetDistanceTo(Center)
-            }) //it's probably outside EF's SQL generation step by now, but you could add one more .Select here that does the math if it fails (return the GeoCoordinate object)
-            .Where(x => x.Distance < range)
-            .ToList();
-        //var Range = _context.PostCode.AsEnumerable().Select(x => new GeoCoordinate(x.latitude, x.longitude)).Where(x => x.GetDistanceTo(Center) < range).ToList();
-
-        
-
-        var testwhere = _context.PostCode.AsEnumerable()
-            .Where(x => new GeoCoordinate(x.latitude, x.longitude).GetDistanceTo(Center)<= (range * 1609.344)).ToList();
-
         foreach (var item in nearby)
         {
             var FindPostalCode = await GetPostalCodeUsingLatAndLng(item.Latitude, item.Longitude);
