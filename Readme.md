@@ -13,4 +13,4 @@ to use the webapi on the console you need to download both git repo:
 2. Download the console application from github using git Cli : "gh repo clone kamalkss/WordShop" or with https mode : "https://github.com/kamalkss/WordShop.git"
 3. Run the webapi with opening a windows terminal or cmd from  the root of WordShopExcersice.Webapi using command : "dotnet run"
 4. Run the Console application with opening a windows terminal or cmd from the root of WordShop.ConsoleApplication using command "dotnet run"
-5. For the second cmd you can use the application
+5. From the second cmd you can use the application
